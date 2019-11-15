@@ -1,0 +1,188 @@
+:root {
+  background-image: linear-gradient(
+    180deg, #8cb, #586);
+
+  --light-gray: #dee;
+  --light-black: #222;
+  --brand: #2266ee;
+  --brand-contrast: white;
+  --shadow: 0 2px 2px 0 rgba(0, 0 ,0, 0.4);
+
+}
+
+/* Element Styles */
+
+header {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  background-color: var(--brand);
+  color: var(--brand-contrast);
+  box-shadow: var(--shadow);
+  margin: 0 2px;
+  padding: 1rem;
+  text-align: center;
+
+  text-transform: uppercase;
+}
+
+nav {
+  background-color: var(--light-black);
+  color: white;
+  box-shadow: var(--shadow);
+  margin: 0 2px;
+  padding: 1rem;
+}
+
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+nav a {
+  color: inherit; 
+  text-decoration: none;
+  font-size: 16pt;
+}
+
+nav a::after {
+  content: '»';
+}
+
+h2, h3 {
+  background-color: var(--brand);
+  color: var(--brand-contrast);
+  box-shadow: var(--shadow);
+  text-align: center;
+  margin: 2px;
+  padding: 0.5rem 2em;
+
+  position: relative;
+}
+
+button, input, textarea, img {
+  margin: 2px;
+}
+
+textarea {
+  box-shadow: inset var(--shadow);
+}
+
+button {
+  background-color: var(--light-gray);
+  box-shadow: var(--shadow);
+  border: none;
+}
+
+/* Components */
+
+ul.clients {
+    background-color: var(--light-black);
+    color: white;
+    box-shadow: var(--shadow);
+    list-style: none;
+    font-weight: 900;
+    padding: 1rem;
+  }
+
+ul.clients li {
+  font-size: 16pt;
+  margin-bottom: 2px;
+}
+
+ul.clients li a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul.clients li a::after {
+  content: '»';
+}
+
+.new-post {
+  background-color: white;
+  color: var(--brand);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  font-size: 16pt;
+  margin: 2px;
+  display: block;
+  text-align: center;
+
+  position: relative;
+}
+
+.post-composer {
+  height: 20rem;
+  font-family: var(--font);
+}
+
+.toolbar.toolbar-sticky {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 -1px 2px 0 var(--brand);
+}
+
+.toolbar {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 4px;
+  padding: 4px 0.7rem;
+  background-color: white;
+  box-shadow: var(--shadow);
+}
+
+.toolbar button, .toolbar a {
+  all: initial;
+  background: none;
+  font-size: 14pt;
+  font-weight: 500;
+  border: 2px solid var(--light-black);
+  color: var(--light-black);
+  border-radius: 3px;
+  padding: 4px;
+  text-align: center;
+}
+
+.toolbar button.primary, .toolbar a.primary {
+  background-color: var(--light-black);
+  color: white;
+}
+
+.multipane {
+  display: grid;
+  grid-auto-flow: column;
+  overflow-x: scroll;
+}
+
+.social-feed {
+  max-width: 20rem;
+}
+
+.social-post {
+  background-color: white;
+  color: var(--light-black);
+  box-shadow: var(--shadow);
+  margin: 4px 2px;
+  padding: 0.5em;
+}
+
+.social-post .author {
+  color: var(--brand);
+  font-weight: 500;
+}
+
+.social-post .meta {
+  color: lightgray;
+  font-style: italic;
+}
+/* Layout */
+
+main {
+  display: grid;
+}
+
+
+
