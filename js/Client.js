@@ -7,19 +7,19 @@ export default () => {
   let store_
   let name
   return {
-    oninit: v => {
-      const { store, clientName } = v.attrs
+    oninit({attrs, state}) {
+      const { store, clientName } = attrs
       store.didLoadClients(m.redraw)
-      name = clientName
-      store_ = store.clients
+      state.name = clientName
+      state.clients = store.clients
     },
-    view(v) {
+    view({state}) {
       console.log(name)
-      client = store_[name] || {}
+      client = clients[name] || {}
       console.log(JSON.stringify(store_))
       return [
       m("header", {}, [
-        m("h2.pagetitle", {}, name),
+        m("h2.pagetitle", {}, state.name),
         m("div.toolbar", [
           m(m.route.Link, {
             href: "/clients/"+name+"/new-post",
@@ -28,7 +28,7 @@ export default () => {
         ])
       ]),
       m("section.multipane", {},
-        Object.entries(client)
+        Object.entries(state.client)
         .map(([platform, creds]) =>
           m(SocialFeed, {platform, creds})))
     ]
