@@ -2,7 +2,6 @@ import m from "/lib/mithril.js"
 
 export default () => ({
   view: ({attrs}) => {
-    attrs.store.didLoadClients(m.redraw)
     return [
       m("h2.pagetitle", "Clients"),
       m("ul.clients", Object.entries(

@@ -1,12 +1,24 @@
-import { EMPTY } from "https://dev.jspm.io/rxjs@6/_esm2015"
 
 export function NullFeed(creds) {
   return {
     name: "Unsupported platform",
-    posts: EMPTY
+    posts: [],
+    onloadmore(_) {},
+    loadMore() {
+      console.error(
+        'Tried to load more from unsupported platform')
+    }
   }
 }
 
-export default {
-  Fakebook: (creds) => import("./mock-platform.js"),
+const platforms = {
+  Fakebook: (creds) => import("./fakebook.js"),
+}
+
+export async function create(name, creds) {
+  const factory = platforms[name]
+  if (factory!==undefined) {
+    return (await factory()).create(creds) 
+  }
+  return NullFeed() 
 }

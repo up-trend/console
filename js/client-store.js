@@ -1,18 +1,13 @@
+import m from "/lib/mithril.js"
 export default function newClientStore() {
-  let clients
-  const clients$ = fetch("testdata/clients.json")
-    .then(res => res.json())
-    .then(data => clients = data)
+  let clients = {}
+  let req = m.request({
+    url:"testdata/clients.json",
+  }).then(data => console.log(JSON.stringify(clients = data), m.redraw()))
   return {
     get clients() {
-      if (typeof clients !== "undefined") {
         return clients
-      } else {
-        return {}
-      }
     },
-    didLoadClients(f) {
-      clients$.then(f)
-    },
+    onload(f) { req.then(f) }
   }
 }
