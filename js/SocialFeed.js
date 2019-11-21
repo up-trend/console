@@ -5,8 +5,6 @@ import SocialPost from "./SocialPost.js"
 import { create, NullFeed } from "./platforms/platforms.js"
 
 export default () => {
-  let platformName
-  
   return {
     oninit({attrs: {feed, platform, creds}, state}) {
       if (feed===undefined) {
